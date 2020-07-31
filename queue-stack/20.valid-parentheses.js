@@ -24,7 +24,7 @@ var isValid = function (s) {
       return false;
     }
   }
-  return !stack.length;
+  return !stack.length; // handle case [((((((]
 };
 // @lc code=end
 // 解法：
