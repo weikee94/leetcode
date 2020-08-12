@@ -1,3 +1,11 @@
+**Four Steps**
+- clarification
+- possible solution ---> optimal (time & space)
+- code
+- test cases
+
+
+
 **DFS**
 
 - required one array to store the sequence and one stack to record current node
