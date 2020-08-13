@@ -11,18 +11,36 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-  let ans = [];
+  // 暴力解法
+  // let ans = [];
+  // for (let i = 0; i < nums.length; i++) {
+  //   for (let j = i + 1; j < nums.length; j++) {
+  //     if (nums[i] + nums[j] === target) {
+  //       ans.push(i);
+  //       ans.push(j);
+  //     }
+  //   }
+  // }
+  // return ans;
+
+  // 更好解法 hashmap
+  let objMap = {};
   for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[i] + nums[j] === target) {
-        ans.push(i);
-        ans.push(j);
-      }
+    let nextVal = target - nums[i];
+
+    // check whether value inside map keys
+    // 这里是重点判断
+    if (nextVal in objMap) {
+      return [objMap[nextVal], i];
     }
+
+    objMap[nums[i]] = i;
   }
-  return ans;
 };
 // @lc code=end
 
 // 暴力解法
 // 循环两次求和
+
+// 更好解法
+// 1 使用 hashmap 推荐
