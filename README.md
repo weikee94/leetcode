@@ -1,10 +1,17 @@
 **Four Steps**
+
 - clarification
 - possible solution ---> optimal (time & space)
 - code
 - test cases
 
+**ROI**
 
+- two pointers, DFS, BFS, binary search (highest ROI)
+- linked list, stack, queue (high ROI)
+- priority queue, heap (medium ROI)
+- greedy, dynamic programming (medium ROI)
+- trie, union find (medium ROI)
 
 **DFS**
 
