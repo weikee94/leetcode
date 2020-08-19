@@ -39,3 +39,10 @@ return res;
 **BFS**
 
 - required one array to store the sequence and one queue to record current node
+
+**Divide Conquer**
+
+- terminator
+- process current logic(split big problem)
+- drill down (subproblem), merge(subresult)
+- reverse states
