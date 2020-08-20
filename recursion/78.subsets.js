@@ -57,3 +57,18 @@ var subsets = function (nums) {
   }
   return result;
 };
+
+// 第三种解法
+// 要自己画图理解
+// 顺序应该是 [], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]
+
+var subsets = function (nums) {
+  const result = [[]];
+
+  for (let i = 0; i < nums.length; i++) {
+    result.forEach((item) => {
+      result.push([...item, nums[i]]);
+    });
+  }
+  return result;
+};
