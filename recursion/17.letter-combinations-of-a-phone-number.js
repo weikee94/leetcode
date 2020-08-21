@@ -10,6 +10,7 @@
  * @return {string[]}
  */
 var letterCombinations = function (digits) {
+  if (digits.length === 0) return [];
   let result = [];
 
   let map = {
