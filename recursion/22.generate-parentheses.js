@@ -33,3 +33,4 @@ var generateParenthesis = function (n) {
   }
 };
 // @lc code=end
+// 想想 dfs bfs 解法怎么做？
