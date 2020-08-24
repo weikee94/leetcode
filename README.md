@@ -15,6 +15,38 @@
 
 **DFS**
 
+- 两种写法: 递归或者 stack
+
+```python
+  # 递归写法
+  visited = set()
+
+  def dfs(node, visited):
+    visited.add(node)
+
+    # process current node here
+    for next_node in node.children():
+      if not next_node in visited:
+        dfs(next_node, visited)
+```
+
+```python
+  # 非递归写法
+  def dfs(self, tree):
+    if tree.root is None:
+      return []
+
+    visited, stack = [], [tree.root]
+
+    while stack:
+      node = stack.pop()
+      visited.add(node)
+
+      process(node)
+      nodes = generate_related_nodes(node)
+      stack.push(nodes)
+```
+
 - required one array to store the sequence and one stack to record current node
 - pseudocode:
 
@@ -38,7 +70,23 @@ return res;
 
 **BFS**
 
+- 一种写法：queue
 - required one array to store the sequence and one queue to record current node
+
+```python
+  def bfs(graph, start, end):
+    queue = []
+    queue.append([start])
+    visited.add(start)
+
+    while queue:
+      node = queue.pop()
+      visited.add(node)
+
+      process(node)
+      nodes = generate_related_nodes(node)
+      queue.push(nodes)
+```
 
 **Divide Conquer**
 
