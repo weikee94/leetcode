@@ -46,3 +46,26 @@ var levelOrder = function (root) {
 // 1. BFS 遍历
 // 2. 设置当前层级空数组
 // 3. 每当 queue 遍历结束(相当于lv + 1)，finalArr.push(currentLv)
+
+// 2. DFS 遍历
+//    通过传递层级树来判断该层级有什么元素
+var levelOrder = function (root) {
+  if (!root) return [];
+  let result = [];
+
+  var traverse = function (node, level) {
+    // recursion terminator
+    if (!node) return;
+    // process current logic
+    if (result.length === level) {
+      result.push([]);
+    }
+    result[level].push(node.val);
+    // drill down
+    traverse(node.left, level + 1);
+    traverse(node.right, level + 1);
+  };
+
+  traverse(root, 0);
+  return result;
+};
