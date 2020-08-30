@@ -115,3 +115,7 @@ while left <= right:
 ```
 
 **Floodfill**
+
+**Dynamic Programming**
+
+- 将问题分解为相互重叠的子问题，通过反复求解子问题解决原问题
