@@ -118,4 +118,47 @@ while left <= right:
 
 **Dynamic Programming**
 
+- 通常都是求最值问题
+- 先定义子问题
 - 将问题分解为相互重叠的子问题，通过反复求解子问题解决原问题
+
+1. 最优子结构 opt[n] = best_of(opt[n-1], opt[n-2])
+2. 储存中间状态: opt[i]
+3. 递推公式(又叫状态转移方程或者 DP 方程)：Fib: opt[i] = opt[n-1] + opt[n-2]
+
+**自底向下**
+
+- 递归 + 记忆化搜索
+  `例子`
+
+```js
+let cache = {};
+var climbStairs = function (n) {
+  // 递归 + 记忆化搜索：自底向下
+  if (n <= 2) {
+    return n;
+  }
+  if (!(n in cache)) {
+    cache[n] = climbStairs(n - 1) + climbStairs(n - 2);
+  }
+  return cache[n];
+};
+```
+
+**自底向上**
+`例子`
+
+```js
+var climbStairs = function (n) {
+  if (n < 2) return 1;
+  // 初始第零和第一台阶所需步数
+  // 第零台阶设置为1 是为了求第二台阶时，使用 第零和第一 相加而来的
+
+  // 这个就是所谓的自底向上 bottom up
+  let dp = [1, 1];
+  for (let i = 2; i <= n.length; i++) {
+    dp[i] = dp[i - 2] + dp[i - 1];
+  }
+  return dp[n];
+};
+```
