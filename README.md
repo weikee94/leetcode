@@ -126,6 +126,11 @@ while left <= right:
 2. 储存中间状态: opt[i]
 3. 递推公式(又叫状态转移方程或者 DP 方程)：Fib: opt[i] = opt[n-1] + opt[n-2]
 
+解题步骤：
+a. define subproblems
+b. DP array
+c. DP 方程
+
 **自底向下**
 
 - 递归 + 记忆化搜索
