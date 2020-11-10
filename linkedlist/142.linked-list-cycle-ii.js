@@ -21,7 +21,7 @@ var detectCycle = function(head) {
     var slow = head;
     var fast = head;
 
-    while(head) {
+    while(fast && fast.next && fast.next.next) {
         slow = slow.next;
         fast = fast.next.next;
         if(slow == fast) {
