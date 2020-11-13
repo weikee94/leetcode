@@ -1,8 +1,10 @@
-/*
- * @lc app=leetcode id=1 lang=javascript
- *
- * [1] Two Sum
+/**
+ * @author [wk]
+ * @create date 2020-11-13 17:20:16
+ * @modify date 2020-11-13 17:20:16
+ * @desc [1] Two Sum
  */
+
 
 // @lc code=start
 /**
