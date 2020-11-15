@@ -1,5 +1,5 @@
-<!-- 记录下标位置置换 -->
-<!-- QS: 283 -->
+**记录下标位置置换**
+_QS: 283_
 
 ```js
 var moveZeroes = function (nums) {
@@ -26,8 +26,8 @@ var moveZeroes = function (nums) {
 };
 ```
 
-<!-- 遍历数组 (必须熟炼) -->
-<!-- QS: 11 -->
+**遍历数组 (必须熟炼)**
+_QS: 11_
 
 ```js
 // 嵌套循环的遍历
@@ -39,4 +39,6 @@ for (let i = 0; i < nums.length - 1; i++) {
 for (let i = 0; j < nums.length - 1; i < j) {
   var minHeight = a[i] < a[j] ? a[i++] : a[j--];
 }
+
+// i 和 j 同时向左右扩散
 ```
