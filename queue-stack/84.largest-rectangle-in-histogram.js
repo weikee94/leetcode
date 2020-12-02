@@ -28,3 +28,6 @@ var largestRectangleArea = function(heights) {
   // 2. 然后向左跟右依次扩散，遇到更高的, left-- , right++
   // 3. 每次记录高度compare 
   // 4. 这题画图才做出来，need review more
+
+  // 解题思路2 
+  // 1 用stack 解决
