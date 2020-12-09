@@ -22,5 +22,10 @@ var findMaxAverage = function(nums, k) {
     return finalMax / k;
 };
 
+// 解题时间线
+// 1. 02/12/2020
+
 // 解题思路 (sliding window)
 // 1. 暴力法 (两层循环) O(n^2) 
+
+
