@@ -10,18 +10,18 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-    // first attempt
-    let checkList = new Set();
+    let seen = new Set();
     let longest = 0;
-    let windowLongest = 0;
-    for(let i = 0; i < s.length; i++) {
-        if(!checkList.has(s[i])) {
-            checkList.add(s[i])
-            windowLongest+=1;
-            longest = Math.max(longest, windowLongest)
-        } else {
-            windowLongest = 0;
+    let windowStart = 0;
+    for(let windowEnd = 0; windowEnd < s.length; windowEnd++) {
+        while(seen.has(s[windowEnd])) {
+            // 这里是重点
+            // 当我们遇见重复的值，由于我们用了windowStart 作为标记，所以我们从那个标记点开始删除
+            // 直到遇见不重复的，且每次执行都把 windowStart 加一
+            seen.delete(s[windowStart++])
         }
+        seen.add(s[windowEnd])
+        longest = Math.max(longest, windowEnd - windowStart + 1)
     }
             
     return longest;
