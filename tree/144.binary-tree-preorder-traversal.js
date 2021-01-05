@@ -38,3 +38,24 @@ var preorderTraversal = function (root) {
 //   self.preorder(root.right)
 
 // 尝试iterative approach
+var preorderTraversal = function(root) {
+  // iterative 关键在于用 stack 维护
+
+  // empty condition
+  if(!root) {
+    return [];
+  }
+  var stack = [root];
+  var result = []
+  while(stack.length) {
+    var node = stack.pop();
+    result.push(node.val);
+    if(node.right) {
+      stack.push(node.right)
+    }
+    if(node.left) {
+      stack.push(node.left)
+    }
+  }
+  return result;
+}
