@@ -1,0 +1,4 @@
+- BST definition
+ - left subtree <= root
+ - right subtree >= root
+ - 从上到下以此类推
