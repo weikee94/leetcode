@@ -1,0 +1,25 @@
+- Valid BST defined
+  - 左子树必须小于当前头
+  - 右子树必须大与当前头
+  - 以此递归向下介符合前两条规律
+  
+const isValidBST = (root) => {
+  return checkValid(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)
+}
+
+const checkValid = (node, min, max) => {
+    if(!node) {
+      return true;
+    }
+    
+    // terminator
+    else if((node && min >= node.val) || (node && node.val >= max)) {
+      return false;
+    }
+    // drill down
+    return (
+      // traverse left part and right part
+      checkValid(node.left, min, node.val) && checkValid(node.right, node.val, max)
+    )
+}
+  
