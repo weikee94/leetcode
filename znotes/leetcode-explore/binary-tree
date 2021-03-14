@@ -1,0 +1,31 @@
+BFS: - is an algorithm to traverse or search in data structures like a tree or graph.
+     - starts with a root node and visit node itself first, then traverse its neighbours traverse its second lv neighbours and so on and so fourth
+     - typically we use a queue to help us to do BFS.
+
+// queue method
+
+
+// recursion method
+var levelOrder = function(root) {
+  // handle empty root
+  if(!root) {
+    return [];
+  }
+  
+  let result = [];
+  traverse(root, 0);
+  var traverse = (node, lv) => {
+    // handle empty node
+    if(!node) {
+      return;
+    }
+    
+    if(result.length === lv) {
+      result.push([])
+    }
+    result[lv].push(node.val);
+    traverse(node.left, lv + 1);
+    traverse(node.right, lv + 1);
+  }
+  return result;
+}
