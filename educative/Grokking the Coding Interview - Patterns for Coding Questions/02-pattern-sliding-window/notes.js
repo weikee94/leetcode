@@ -69,6 +69,27 @@ for(let i = 0; i < arr.length; i++) {
 
 console.log("answer: ", min === arr.length ? 0 : min)
 
+// 第四题
+// longest substring with k distinct characters (leetcode 340)
+let str = 'araaci', k = 1;
+let map = {};
+let marker = 0;
+let left = '';
+let longest = 0;
+for(let i = 0; i < str.length; i++) {
+	map[str[i]] = map[str[i]] ? map[str[i]] + 1 : 1;
+	left = str[marker];
+	while(Object.keys(map).length > k) {
+		map[left] -= 1;
+		if(map[left] === 0) {
+			delete map[left]
+		}
+		marker++;
+	}
+	longest = Math.max(longest, i - marker + 1)
+}
+console.log("longest: ", longest)
+
 
 
 
