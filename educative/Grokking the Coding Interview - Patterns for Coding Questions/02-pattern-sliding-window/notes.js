@@ -1,4 +1,4 @@
-// method one 暴力解
+// 第一题
 // find the average of all contiguous subarrays of size K in it.
 let outputArr = [];
 let arr = [1, 3, 2, 6, -1, 4, 1, 8, 2];
@@ -48,3 +48,39 @@ for(let i = 0; i < arr.length; i++) {
 	}
 }
 console.log("currentMax: ", currentMax)
+
+// 第三题
+// smallest subarray with a given sum
+let arr = [3,4,1,1,6], s = 8;
+let accumulateSum = 0;
+let marker = 0;
+let min = arr.length;
+let result = 0;
+for(let i = 0; i < arr.length; i++) {
+	accumulateSum += arr[i];
+	// 重点在于这个题目的sliding window not fixed
+	// so we will shrink the window until the window's sum is smaller than s again
+	while(accumulateSum >= s) {
+		min = Math.min(min, i + 1 - marker)
+		accumulateSum -= arr[marker];
+		marker++
+	}
+}
+
+console.log("answer: ", min === arr.length ? 0 : min)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
