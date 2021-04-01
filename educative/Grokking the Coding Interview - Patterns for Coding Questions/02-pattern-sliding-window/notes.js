@@ -28,3 +28,23 @@ for(let i = 0; i < arr.length; i++) {
 
 }
 console.log("result: ", result);
+
+// 第二题
+// maximum sum subarray of size k
+let currentMax = 0;
+let accumulateSum = 0;
+let marker = 0;
+let arr = [2,3,4,1,5];
+let k = 2;
+for(let i = 0; i < arr.length; i++) {
+	accumulateSum += arr[i];
+
+	if(i >= k - 1) {
+		if(accumulateSum > currentMax) {
+			currentMax = accumulateSum;
+		}
+		accumulateSum -= arr[marker];
+		marker++;
+	}
+}
+console.log("currentMax: ", currentMax)
