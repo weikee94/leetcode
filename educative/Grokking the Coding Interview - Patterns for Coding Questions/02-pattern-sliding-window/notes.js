@@ -90,18 +90,23 @@ for(let i = 0; i < str.length; i++) {
 }
 console.log("longest: ", longest)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 第五题
+// Fruits into Baskets
+let arr = ['A', 'B', 'C', 'A', 'C'], k = 2;
+let map = {};
+let left = '';
+let marker = 0;
+let longest = 0;
+for(let i = 0; i < arr.length; i++) {
+	map[arr[i]] = map[arr[i]] ? map[arr[i]] + 1 : 1;
+	left = arr[marker];
+	while(Object.keys(map).length > k) {
+		map[left] -= 1;
+		if(map[left] === 0) {
+			delete map[left];
+		}
+		marker++;
+	}
+	longest = Math.max(longest, i - marker + 1)
+}
+console.log('longest: ', longest)
