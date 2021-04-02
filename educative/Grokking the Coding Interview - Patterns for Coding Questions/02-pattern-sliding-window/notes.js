@@ -131,6 +131,49 @@ for(let i = 0; i < s.length; i++) {
 console.log("longest: ", longest)
 
 
+// 第七题
+// longest substring with same letters after replacement
+let s = 'aabccbb', k = 2;
+let maxRepeatCount = 0;
+let marker = 0;
+let longest = 0;
+let map = {};
+for(let i = 0; i < s.length; i++) {
+	map[s[i]] = map[s[i]] ? map[s[i]] + 1 : 1;
+	maxRepeatCount = Math.max(maxRepeatCount, map[s[i]]);
+
+	if(i - marker + 1 - maxRepeatCount > k) {
+		map[s[marker]] -= 1;
+		marker++;
+	}
+	longest = Math.max(longest, i - marker + 1);
+}
+console.log('longest: ', longest)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
