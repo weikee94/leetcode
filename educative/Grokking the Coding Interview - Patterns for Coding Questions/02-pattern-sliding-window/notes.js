@@ -1,3 +1,4 @@
+
 // 第一题
 // find the average of all contiguous subarrays of size K in it.
 let outputArr = [];
@@ -110,3 +111,30 @@ for(let i = 0; i < arr.length; i++) {
 	longest = Math.max(longest, i - marker + 1)
 }
 console.log('longest: ', longest)
+
+
+// 第六题
+// no repeat substring
+let s = 'aabccbb';
+let map = {};
+let longest = 0;
+let marker = 0;
+for(let i = 0; i < s.length; i++) {
+	currentCharacters = s[i];
+	if(map.hasOwnProperty(currentCharacters)) {
+		map = {};
+		marker = i
+	}
+	map[s[i]] = map[s[i]] ? map[s[i]] + 1 : 1;
+	longest = Math.max(longest, i - marker + 1)
+}
+console.log("longest: ", longest)
+
+
+
+
+
+
+
+
+
