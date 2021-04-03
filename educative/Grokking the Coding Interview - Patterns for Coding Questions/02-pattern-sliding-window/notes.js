@@ -205,3 +205,41 @@ for(let i = 0; i < s.length; i++) {
 		}
 	}
 }
+
+// 第十题
+// string anagrams
+let s = 'abbcabc', p = 'abc';
+let patternMap = {};
+
+for(let i = 0; i < p.length; i++) {
+	patternMap[p[i]] = patternMap[p[i]] ? patternMap[p[i]] + 1 : 1;
+}
+
+let outputArr = [];
+let matches = 0;
+let marker = 0;
+let leftMost = '';
+for(let i = 0; i < s.length; i++) {
+	let currentCharacters = s[i]
+	if(patternMap.hasOwnProperty(currentCharacters)) {
+		patternMap[currentCharacters] -= 1;
+		if(patternMap[currentCharacters] === 0) {
+			matches++;
+		}
+	}
+	if(matches === Object.keys(patternMap).length) {
+		// 下面这步没想到，下次复习重点思考这里
+		outputArr.push(marker)
+	}
+	if(i >= p.length - 1) {
+		leftMost = s[marker];
+		marker++;
+		if(patternMap.hasOwnProperty(leftMost)) {
+			if(patternMap[leftMost] === 0) {
+				matches--;
+				patternMap[leftMost] += 1;
+			}
+		}
+	}
+}
+console.log('outputArr: ', outputArr)
