@@ -243,3 +243,45 @@ for(let i = 0; i < s.length; i++) {
 	}
 }
 console.log('outputArr: ', outputArr)
+
+// 第十一题
+// smallest window containing substring
+
+let s = 'aabdec', p = 'abc';
+let patternMap = {};
+for(let i = 0; i < p.length; i++) {
+	patternMap[p[i]] = patternMap[p[i]] ? patternMap[p[i]] + 1 : 1
+}
+let marker = 0;
+let currentChac = '';
+let matched = 0;
+let smallest = s.length + 1;
+let leftMost = '';
+let subStrStart = 0;
+for(let i = 0; i < s.length; i++) {
+	currentChac = s[i]
+	if(patternMap.hasOwnProperty(currentChac)) {
+		patternMap[currentChac] -= 1;
+		if(patternMap[currentChac] >= 0) {
+			// 这里确保加进来的字母一定是对的，如果是 bbb patternMap 返回是负的， matched 就加不了
+			matched++;
+		}
+	}
+
+	while(matched === p.length) {
+		// 这里下次复习想看为什么是 i - marker + 1 [重点复习]
+		if(smallest > i - marker + 1) {
+			smallest = i - marker + 1;
+			subStrStart = marker;
+		}
+
+		leftMost = s[marker++];
+		if(patternMap.hasOwnProperty(leftMost)) {
+			if(patternMap[leftMost] === 0) {
+				matched--;
+			}
+			patternMap[leftMost] += 1;
+		}
+	}
+}
+console.log("smallest: ", smallest > s.length ? '' : s.substring(subStrStart, subStrStart + smallest))
