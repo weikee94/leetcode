@@ -285,3 +285,39 @@ for(let i = 0; i < s.length; i++) {
 	}
 }
 console.log("smallest: ", smallest > s.length ? '' : s.substring(subStrStart, subStrStart + smallest))
+
+
+// 第十二题
+// Words Concatenation
+let s = 'catfoxcat', words = ['cat', 'fox'];
+let frequencyMap = {}
+for(let i = 0; i < words.length; i++) {
+	frequencyMap[words[i]] = frequencyMap[words[i]] ? frequencyMap[words[i]] + 1 : 1;
+}
+let startIndex = 0;
+let result = [];
+let wordCount = words.length;
+let wordLength = words[0].length;
+for(let i = 0; i <= s.length - wordCount * wordLength ; i++) {
+	let wordSeen = {};
+	for(let j = 0; j < wordCount; j++) {
+		// 下面这步是重点，以nextWordIndex 为分割，找到下一个字的起始点，用substring 截取
+		let nextWordIndex = i + j * wordLength;
+		let currentWord = s.substring(nextWordIndex, nextWordIndex + wordLength);
+		if(!frequencyMap.hasOwnProperty(currentWord)) {
+			break;
+		}
+
+		wordSeen[currentWord] = wordSeen[currentWord] ? wordSeen[currentWord] + 1 : 1;
+
+		if(wordSeen[currentWord] > frequencyMap[currentWord]) {
+			break;
+		}
+
+		// 这步一开始想不到 [复习重点]
+		if(j + 1 == wordCount) {
+			result.push(i)
+		}
+	}
+}
+console.log('result: ', result)
