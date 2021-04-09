@@ -45,3 +45,27 @@ for(let i = 0; i < arr.length; i++) {
 	}
 }
 console.log('notTargetNum: ', notTargetNum)
+
+// 第三题
+// Squaring a Sorted Array
+let arr = [-2,-1,0,2,3]
+let outputArr = [];
+let left = 0;
+let right = arr.length - 1;
+let highestIndex = arr.length - 1;
+while(left <= right) {
+	let leftSquare = arr[left] * arr[left]
+	let rightSquare = arr[right] * arr[right]
+	if(leftSquare < rightSquare) {
+		// 下面用unshift 或者用 highestIndex 都可以
+		outputArr.unshift(rightSquare)
+		// outputArr[highestIndex--] = rightSquare;
+		right--;
+	}else {
+		outputArr.unshift(leftSquare);
+		// outputArr[highestIndex--] = leftSquare;
+		left++;
+	}
+
+}
+console.log("result: ", outputArr)
