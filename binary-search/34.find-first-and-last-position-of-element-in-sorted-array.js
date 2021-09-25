@@ -73,3 +73,56 @@ var searchRange = function (nums, target) {
 // 1. binary search
 // 2. 找出第一个position
 // 3. binary search [第一个position, nums.length-1]
+
+
+
+// 第二种解法思路 25/09/2021
+var searchRange = function(nums, target) {
+  let ans = [-1, -1];
+  ans[0] = findFirst(nums, target);
+  ans[1] = findLast(nums, target);
+  
+  function findLast(nums, target) {
+      let left = 0, right = nums.length - 1, result = -1;
+      
+      while(left <= right) {
+          let mid = Math.floor(left + (right - left) / 2);
+          
+          // 这里判断如果nums[mid] 大过 目标值，代表值在左区间
+          if(nums[mid] > target) {
+              right = mid - 1;
+          } else {
+              left = mid + 1;
+          }
+          
+          if(nums[mid] === target) {
+              result = mid;
+          }
+      }
+      
+      return result;
+  }
+  
+  function findFirst(nums, target) {
+      let left = 0, right = nums.length - 1, result = -1;
+      
+      while(left <= right) {
+          let mid = Math.floor(left + (right - left) / 2);
+          
+          // 这里判断如果nums[mid] 小过 目标值，代表值在右区间
+          if(nums[mid] < target) {
+              left = mid + 1;
+          } else {
+              right = mid - 1;
+          }
+          
+          if(nums[mid] === target) {
+              result = mid;
+          }
+      }
+      
+      return result;
+  }
+  
+  return ans;
+};
