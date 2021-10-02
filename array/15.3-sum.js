@@ -63,3 +63,83 @@ var threeSum = function(nums) {
 // 如果没有
 //   sum < 0, L++
 //   sum > 0, R--
+
+
+
+// 2/10/2021
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+ var threeSum = function(nums) {
+    
+    // 先判断数组是不是多过三个
+    if(nums.length < 3) {
+        return []
+    }
+    
+    // sort the array
+    let sortedArr = nums.sort((a, b) => a - b)
+    
+    // result 
+    let result = []
+    
+    // 开始遍历数组
+    for(let i = 0; i < sortedArr.length; i++) {
+        
+        // 如果当前值大过0直接退出，因为已经排序了不可能后面相加还会等于0
+        if(sortedArr[i] > 0) {
+            return result;
+        }
+        
+        // 当前循环的值和上次循环的一样，就跳过，避免重复值
+        // 因为它会确保当前值匹配的都搜完才去下一个循环
+        // 就是说已经确保拿到所有解了已经，下一个一样的号码直接跳过
+        if (i > 0 && sortedArr[i] === sortedArr[i - 1]) {
+          continue;
+        }
+        
+        // two pointers
+        let l = i + 1;
+        let r = sortedArr.length - 1;
+        
+        while(l < r) {
+            let temp = sortedArr[i] + sortedArr[l] + sortedArr[r];
+            
+            if(temp < 0) {
+                l++;
+            }
+            
+            if(temp > 0) {
+                r--;
+            }
+            
+            if(temp === 0) {
+                result.push([sortedArr[i], sortedArr[l], sortedArr[r]]);
+                
+                 // 跳过重复值
+                while(l < r && nums[l] === nums[l + 1]) {
+                  l ++;
+                }
+                // 同上
+                while(l < r && nums[r] === nums[r - 1]) {
+                  r --;
+                }
+                
+                l++;
+                r--;
+            }
+        }
+    }
+    
+    return result;
+};
+
+// 思路
+// 先把数组排序
+// 遍历数组
+//   如果当前值>0因为已经排序所以后面不可能相加等于0
+// 双指针
+//   l = i + 1, r = arr.length - 1;
+//   依次循环检查相加等不等于0
+//     如果等于0 确保下个l r 不是之前值
