@@ -197,3 +197,9 @@ var climbStairs = function (n) {
 1. 优化方式：不重复 fibonacci, 剪枝(生成括号问题)
 2. 搜索方式： DFS, BFS
 3. 进阶：双向搜索，A star search
+
+**刷题list**
+https://leetcode-cn.com/problem-list/xb9nqhhg/
+https://leetcode-cn.com/problem-list/2cktkvj/
+https://leetcode-cn.com/problem-list/qg88wci/
+
