@@ -1,4 +1,7 @@
 **Leetcode**
-https://github.com/grandyang/leetcode
-https://github.com/geekxh/hello-algorithm
-https://github.com/labuladong/fucking-algorithm
+
+| Author      | Link |
+| ----------- | ----------- |
+| grandyang      | https://github.com/grandyang/leetcode       |
+| geekxh   | https://github.com/geekxh/hello-algorithm |
+| labuladong   | https://github.com/labuladong/fucking-algorithm |
