@@ -9,3 +9,4 @@
 | reneargento | https://github.com/reneargento/algorithms-sedgewick-wayne |
 | trekhleb | https://github.com/trekhleb/javascript-algorithms |
 | TheAlgorithms | https://github.com/TheAlgorithms/Python |
+| SharingSource | https://github.com/SharingSource/LogicStack-LeetCode |
